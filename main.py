@@ -2,7 +2,6 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-# "database" in memory
 books = []
 counter = 1
 
@@ -23,7 +22,8 @@ def add_book(book: dict):
     new_book = {
         "id": counter,
         "title": book.get("title"),
-        "author": book.get("author")
+        "author": book.get("author"),
+        "year": book.get("year"),  # NEW FIELD
     }
     books.append(new_book)
     counter += 1
